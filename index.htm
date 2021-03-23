@@ -167,8 +167,8 @@
 
         .annotation-tommy {
             position: absolute;
-            top:75px;
-            left:300px;
+            top: 75px;
+            left: 300px;
             width: 600px;
             height: 800px;
             text-align: center;
@@ -222,7 +222,7 @@
         <div><button onclick="showHighlight('from-broad-to-narrow')" type="button">click to continue</button></div>
     </div>
     <div class="annotation-from-broad-to-narrow annotation">
-        <div>Broad characterizations are often followed by analyses that focus on specific populations.</div>
+        <div>Broad characterizations are often followed by analyses that focus on specific populations. We can focus on characteristics of the COVID-19 pandemic.</div>
         <div><button onclick="showHighlight(4)" type="button">click to continue</button></div>
     </div>
     <div class="annotation-4 annotation">
@@ -248,10 +248,9 @@
     <div class="annotation annotation-tommy">
         <img class="profile-picture" src="tommy.png" />
         <div>April 6th, 1990 - April 6th, 2020</div>
-        <div class="commentary">April 6th was Tommy Martins' 30th birthday. He loved birthdays, singing, dancing and
-            super-hero movies. He knew every single Pokemon. He loved everyone he met; he was always happy. He never
-            knew he lost his mother to COVID-19 a few days before his death. He passed away on his 30th birthday. There
-            was no funeral for him or his mother due to COVID-19 restrictions. We will forever miss him. </div>
+        <div class="commentary">April 6th was Tommy Martins' 30th birthday as well as the day he died from COVID-19. He
+            loved birthdays, singing, dancing, and
+            super-hero movies. He knew every single Pokemon. He loved everyone he met; he was always happy. <br /><br />We will forever miss him. </div>
     </div>
 </body>
 
@@ -278,7 +277,7 @@
                 svg.selectAll(".dot")
                     .data(packedPopulation.leaves())
                     .transition(t)
-                    .attr("opacity",0.05);
+                    .attr("opacity", 0.05);
                 break;
             case 6:
                 svg.selectAll(".dot")
