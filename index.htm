@@ -33,6 +33,7 @@
         .dot {
             fill: #ccc;
             stroke: #222;
+            stroke-width: 2px;
         }
 
         .a0_18 {
@@ -60,12 +61,18 @@
             fill: #47B856;
             color: #000;
             background-color: #47B856;
+            margin: 3px;
         }
 
         .female {
             fill: #B847A9;
             background-color: #B847A9;
             color: #000;
+            margin: 3px;
+        }
+
+        .annotation div {
+            margin: 3px;
         }
 
         .african {
@@ -78,6 +85,10 @@
 
         .asian {
             fill: #f1c27d;
+        }
+
+        .unfilled {
+            fill: #fff;
         }
 
         .visualization-header {
@@ -104,8 +115,9 @@
         }
 
         .annotation {
+            display: none;
             position: absolute;
-            font-size: 24px;
+            font-size: 18px;
             padding: 10px 10px 10px 10px;
             left: 300px;
             color: #222;
@@ -115,6 +127,32 @@
             margin-right: auto;
             top: 700px;
             opacity: 0.8;
+        }
+
+        .annotation-top {
+            top: 100px;
+        }
+
+        .annotation-center {
+            background-color: #ccc;
+            opacity: 0.8;
+            top: 320;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .annotation-start {
+            display: block;
+        }
+
+        button {
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+
+        .button {
+            text-align: center;
         }
 
         .annotation-6 {
@@ -127,26 +165,19 @@
             margin: 10px;
         }
 
-        .annotation-7 {
-            margin-left: 200px;
-            width: 800px;
+        .annotation-tommy {
+            position: absolute;
+            top:75px;
+            left:300px;
+            width: 600px;
             height: 800px;
             text-align: center;
-        }
-
-        .annotation-start {
-            top: 350px;
         }
 
         .commentary {
             font-size: 24px;
             line-height: 36px;
             padding: 12px;
-        }
-
-        .introduce {
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -156,44 +187,65 @@
         <div class="visualization-title">COVID-19 Pandemic: Day 26</div>
         <div class="visualization-authors">A visualization by E.Voss & F.DeFalco</div>
     </div>
-    <div class="annotation-start annotation">April 6th, 2020 was the 26th day of the COVID-19 global pandemic as
-        declared by
-        the CDC. <br /> <br />This is a characterization of that day in a large US based claims system.
-        <div><button onclick="showHighlight(0)" type="button">click to continue</button></div>
+
+    <div class="annotation-start annotation-center annotation">
+        April 6th, 2020 was the 26th day of the COVID-19 global pandemic as declared by the CDC. <br /> <br />This
+        visualization explores that day in a large US based claims system.
+        <div>We start as we often do, by reviewing descriptive statistics.</div>
+        <div class="button"><button onclick="showHighlight('visits')" type="button">click to begin</button>
+        </div>
     </div>
-    <div style="display:none" class="annotation-0 annotation">On April 6th, 966,695 people had at least one visit.
-        <div><button onclick="showHighlight(1)" type="button">click to continue</button></div>
+
+    <div class="annotation-visits annotation">On April 6th, 966,695 people had at least one visit.
+        <div class="button"><button onclick="showHighlight('we-can-stratify-by-sex')" type="button">click to
+                continue</button></div>
     </div>
-    <div style="display:none" class="annotation-1 annotation">
+
+    <div class="annotation-we-can-stratify-by-sex annotation annotation-center">
+        <div class="annotation-top">We can stratify the population by sex or age.</div>
+        <div class="button"><button onclick="showHighlight('stratify-by-sex')" type="button">click to continue</button>
+        </div>
+    </div>
+
+    <div class="annotation-stratify-by-sex annotation">
+        <div>Sex:</div>
         <div class="male">male: 42%
         </div>
         <div class="female">female: 58%</div>
         <div><button onclick="showHighlight(2)" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-2 annotation">The ages of the people can be summarized in three groups.
+    <div class="annotation-2 annotation">
+        <div>Age:</div>
         <div class="a0_18">0-18: 4%</div>
         <div class="a19_64">19-64: 41%</div>
         <div class="a65">65+: 55%</div>
-        <div><button onclick="showHighlight(3)" type="button">click to continue</button></div>
+        <div><button onclick="showHighlight('from-broad-to-narrow')" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-3 annotation">Amongst the broad population COVID-19 was appearing in a
-        small proportion.
+    <div class="annotation-from-broad-to-narrow annotation">
+        <div>Broad characterizations are often followed by analyses that focus on specific populations.</div>
         <div><button onclick="showHighlight(4)" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-4 annotation">17,464 had claims for chest pains or fever.
+    <div class="annotation-4 annotation">
+        <div>17,464 people had claims for chest pains or fever</div>
         <div><button onclick="showHighlight(5)" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-5 annotation">1,645 were tested for SARS2-COV.
+    <div class="annotation-5 annotation">1,645 were tested for SARS2-COV.
         <div><button onclick="showHighlight(6)" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-6 annotation">
-        <div class="big-number">27</div>
+    <div class="annotation-6 annotation">
         <div>
-            There were 27 inpatient cases of COVID-19.
+            Inpatient cases of COVID-19
         </div>
+        <div class="big-number">27</div>
         <div><button onclick="showHighlight(7)" type="button">click to continue</button></div>
     </div>
-    <div style="display:none" class="annotation-7">
+
+    <div class="annotation-7 annotation annotation-center">
+        <div>Ultimately, every point of data reflects the journey of an individual.</div>
+        <div class="button"><button onclick="showHighlight('tommy')" type="button">click to continue</button></div>
+    </div>
+
+    <div class="annotation annotation-tommy">
         <img class="profile-picture" src="tommy.png" />
         <div>April 6th, 1990 - April 6th, 2020</div>
         <div class="commentary">April 6th was Tommy Martins' 30th birthday. He loved birthdays, singing, dancing and
@@ -207,6 +259,7 @@
     var size = 600;
     var offsetX = 300;
     var offsetY = 100;
+    var transitionDuration = 750;
     var dotOpacity = 0.5;
     var dotCount = 1000;
     var dotField = [];
@@ -215,34 +268,37 @@
     function showHighlight(index) {
         console.log('running' + index);
         d3.selectAll(".annotation").style("display", "none");
-        d3.selectAll(".annotation-" + index).style("display", "block");
 
-        var t = d3.transition().duration(500).ease(d3.easePolyOut.exponent(2));
+        d3.selectAll(".annotation-" + index).transition().delay(transitionDuration * 0.8).style("display", "block");
+
+        var t = d3.transition().duration(transitionDuration).ease(d3.easePolyInOut.exponent(4));
 
         switch (index) {
-            case 7:
-                d3.selectAll(".annotation-7")
+            case 'tommy':
+                svg.selectAll(".dot")
+                    .data(packedPopulation.leaves())
                     .transition(t)
-                    .attr("opacity", 1);
+                    .attr("opacity",0.05);
                 break;
             case 6:
                 svg.selectAll(".dot")
-                    .transition(t)
-                    .attr("opacity", 0)
                     .remove();
-                /*
+
                 svg.selectAll(".dot")
-                    .data(packedCases.leaves())
+                    .data(packedPopulation.leaves())
                     .enter()
                     .append("circle")
-                    .attr("class", "dot")
-                    .attr("r", d => d.r)
-                    .attr("cx", d => d.x + offsetX)
-                    .attr("cy", d => d.y + offsetY)
+                    .attr("cx", d => d.data.outerX)
+                    .attr("cy", d => d.data.outerY)
                     .attr("opacity", 0)
                     .transition(t)
-                    .attr("opacity", 1);;
-                */
+                    .attr("cx", d => d.data.homeX)
+                    .attr("cy", d => d.data.homeY)
+                    .attr("r", d => d.r)
+                    .attr("class", d => {
+                        return "dot unfilled"
+                    })
+                    .attr("opacity", 1);
                 break;
             case 5:
                 svg.selectAll(".dot")
@@ -261,7 +317,7 @@
                     .attr("opacity", 0)
                     .remove();
                 break;
-            case 3:
+            case "from-broad-to-narrow":
                 // back to overview
                 svg.selectAll(".dot")
                     .data(packedPopulation.leaves())
@@ -273,7 +329,6 @@
                         return "dot " + d.data.race
                     })
                     .attr("opacity", 1);
-
                 break;
             case 2:
                 // back to overview
@@ -289,16 +344,7 @@
                     .attr("opacity", 1);
 
                 break;
-            case 1:
-                // stratified by sex
-                svg.selectAll(".dot")
-                    .data(packedPopulationBySex.leaves())
-                    .enter()
-                    .append("circle")
-                    .attr("class", "dot")
-                    .attr("cx", d => d.data.homeX)
-                    .attr("cy", d => d.data.homeY);
-
+            case 'stratify-by-sex':
                 svg.selectAll(".dot")
                     .data(packedPopulationBySex.leaves())
                     .transition(t)
@@ -307,9 +353,20 @@
                     .attr("cy", d => d.y + offsetY)
                     .attr("class", d => {
                         return "dot " + d.data.sex
-                    });
+                    })
+                    .attr("opacity", 1);
                 break;
-            case 0:
+            case 'we-can-stratify-by-sex':
+                svg.selectAll(".dot")
+                    .data(packedPopulation.leaves())
+                    .transition(t)
+                    .attr("cx", d => d.data.homeX)
+                    .attr("cy", d => d.data.homeY)
+                    .attr("r", d => d.r)
+                    .attr("class", "dot")
+                    .attr("opacity", 0.1);
+                break;
+            case 'visits':
                 // overview
                 svg.selectAll(".dot")
                     .data(packedPopulation.leaves())
@@ -362,12 +419,16 @@
         var angle = 2 * Math.PI * Math.random();
         x = homeRadius * Math.cos(angle) + 600;
         y = homeRadius * Math.sin(angle) + 400;
+        x2 = homeRadius * 2 * Math.cos(angle) + 600;
+        y2 = homeRadius * 2 * Math.sin(angle) + 400;
 
         data.push({
             index: i,
             value: 2, //3 + Math.random() * 10,
             homeX: x,
             homeY: y,
+            outerX: x2,
+            outerY: y2,
             sex: randSex(),
             race: randRace(),
             age: randAge()
@@ -421,7 +482,6 @@
         ]
     };
     var packedPopulationByAge = pack(d3.hierarchy(populationByAge).sum(d => d.value));
-    console.log(populationByAge);
 
     circles = svg.selectAll(".dot")
         .data(packedPopulation.leaves().sort((a, b) => {
