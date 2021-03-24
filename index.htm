@@ -57,6 +57,34 @@
             margin: 3px;
         }
 
+        .conditions {
+            fill: #7DAA55;
+            background-color: #7DAA55;
+            color: #000;
+            margin: 3px;
+        }
+
+        .drugs {
+            fill: #55A7AA;
+            background-color: #55A7AA;
+            color: #000;
+            margin: 3px;
+        }
+
+        .procedures {
+            fill: #8255AA;
+            background-color: #8255AA;
+            color: #000;
+            margin: 3px;
+        }
+
+        .measurements {
+            fill: #AA5855;
+            background-color: #AA5855;
+            color: #000;
+            margin: 3px;
+        }
+
         .male {
             fill: #47B856;
             color: #000;
@@ -117,16 +145,17 @@
         .annotation {
             display: none;
             position: absolute;
-            font-size: 18px;
-            padding: 10px 10px 10px 10px;
+            font-size: 16px;
+            padding: 4px 20px 4px 20px;
             left: 300px;
             color: #222;
             text-align: center;
-            width: 600px;
+            width: 550px;
             margin-left: auto;
             margin-right: auto;
             top: 700px;
             opacity: 0.8;
+            line-height: 1.5;
         }
 
         .annotation-top {
@@ -149,6 +178,7 @@
             margin-left: auto;
             margin-right: auto;
             width: 200px;
+            font-size: 16px;
         }
 
         .button {
@@ -165,10 +195,29 @@
             margin: 10px;
         }
 
+        .annotation-fever {
+            text-align: center;
+        }
+
+        .annotation-5 {
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .annotation-covid {
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .annotation-ventilation {
+            text-align: center;
+            background-color: #fff;
+        }
+
         .annotation-tommy {
             position: absolute;
             top: 75px;
-            left: 300px;
+            left: 280px;
             width: 600px;
             height: 800px;
             text-align: center;
@@ -189,7 +238,8 @@
     </div>
 
     <div class="annotation-start annotation-center annotation">
-        April 6th, 2020 was the 26th day of the COVID-19 global pandemic as declared by the CDC. <br /> <br />This
+        April 6th, 2020 was the 26th day of the COVID-19 global pandemic as declared by the United States Centers for
+        Disease Control and Prevention. <br /> <br />This
         visualization explores that day in a large US based claims system.
         <div>We start as we often do, by reviewing descriptive statistics.</div>
         <div class="button"><button onclick="showHighlight('visits')" type="button">click to begin</button>
@@ -202,7 +252,8 @@
     </div>
 
     <div class="annotation-we-can-stratify-by-sex annotation annotation-center">
-        <div class="annotation-top">We can stratify the population by sex or age.</div>
+        <div class="annotation-top">We can stratify the population by sex, age, or evaluate data density by domain.
+        </div>
         <div class="button"><button onclick="showHighlight('stratify-by-sex')" type="button">click to continue</button>
         </div>
     </div>
@@ -214,29 +265,61 @@
         <div class="female">female: 58%</div>
         <div><button onclick="showHighlight(2)" type="button">click to continue</button></div>
     </div>
+
     <div class="annotation-2 annotation">
         <div>Age:</div>
         <div class="a0_18">0-18: 4%</div>
         <div class="a19_64">19-64: 41%</div>
         <div class="a65">65+: 55%</div>
+        <div><button onclick="showHighlight('density')" type="button">click to continue</button></div>
+    </div>
+
+    <div class="annotation-density annotation">
+        <div>Data Domain:</div>
+        <div class="conditions">Conditions: 37%</div>
+        <div class="measurements">Measurements: 27%</div>
+        <div class="drugs">Drugs: 19%</div>
+        <div class="procedures">Procedures: 17%</div>
         <div><button onclick="showHighlight('from-broad-to-narrow')" type="button">click to continue</button></div>
     </div>
+
     <div class="annotation-from-broad-to-narrow annotation">
-        <div>Broad characterizations are often followed by analyses that focus on specific populations. We can focus on characteristics of the COVID-19 pandemic.</div>
-        <div><button onclick="showHighlight(4)" type="button">click to continue</button></div>
+        <div>Broad characterizations are often followed by analyses that focus on specific populations. We can focus on
+            characteristics of the COVID-19 pandemic.</div>
+        <div><button onclick="showHighlight('inpatient')" type="button">click to continue</button></div>
     </div>
-    <div class="annotation-4 annotation">
-        <div>17,464 people had claims for chest pains or fever</div>
+
+    <div class="annotation-inpatient annotation">
+        <div>38,856 people had an emergency room or inpatient visit</div>
+        <div><button onclick="showHighlight('fever')" type="button">click to continue</button></div>
+    </div>
+
+    <div class="annotation-fever annotation">
+        <div>5,180 people had claims for chest pains or fever</div>
         <div><button onclick="showHighlight(5)" type="button">click to continue</button></div>
     </div>
-    <div class="annotation-5 annotation">1,645 were tested for SARS2-COV.
-        <div><button onclick="showHighlight(6)" type="button">click to continue</button></div>
-    </div>
-    <div class="annotation-6 annotation">
+
+    <div class="annotation-5 annotation annotation-center">
         <div>
-            Inpatient cases of COVID-19
+            Tested for SARS2-COV
         </div>
-        <div class="big-number">27</div>
+        <div class="big-number">221</div>
+        <div><button onclick="showHighlight('covid')" type="button">click to continue</button></div>
+    </div>
+
+    <div class="annotation-covid annotation annotation-center">
+        <div>
+            Diagnosed with COVID-19
+        </div>
+        <div class="big-number">39</div>
+        <div><button onclick="showHighlight('ventilation')" type="button">click to continue</button></div>
+    </div>
+
+    <div class="annotation-ventilation annotation annotation-center">
+        <div>
+            Received Ventilation
+        </div>
+        <div class="big-number">2</div>
         <div><button onclick="showHighlight(7)" type="button">click to continue</button></div>
     </div>
 
@@ -250,7 +333,8 @@
         <div>April 6th, 1990 - April 6th, 2020</div>
         <div class="commentary">April 6th was Tommy Martins' 30th birthday as well as the day he died from COVID-19. He
             loved birthdays, singing, dancing, and
-            super-hero movies. He knew every single Pokemon. He loved everyone he met; he was always happy. <br /><br />We will forever miss him. </div>
+            super-hero movies. He knew every single Pokemon. He loved everyone he met; he was always happy.
+            <br /><br />We will forever miss him. </div>
     </div>
 </body>
 
@@ -265,24 +349,20 @@
     var circles;
 
     function showHighlight(index) {
-        console.log('running' + index);
         d3.selectAll(".annotation").style("display", "none");
 
-        d3.selectAll(".annotation-" + index).transition().delay(transitionDuration * 0.8).style("display", "block");
+        d3.selectAll(".annotation-" + index)
+            .transition()
+            .delay(transitionDuration * 0.8)
+            .attr("opacity", 0)
+            .style("display", "block")
+            .transition(t)
+            .attr("opacity", 1);
 
         var t = d3.transition().duration(transitionDuration).ease(d3.easePolyInOut.exponent(4));
 
         switch (index) {
             case 'tommy':
-                svg.selectAll(".dot")
-                    .data(packedPopulation.leaves())
-                    .transition(t)
-                    .attr("opacity", 0.05);
-                break;
-            case 6:
-                svg.selectAll(".dot")
-                    .remove();
-
                 svg.selectAll(".dot")
                     .data(packedPopulation.leaves())
                     .enter()
@@ -297,11 +377,29 @@
                     .attr("class", d => {
                         return "dot unfilled"
                     })
-                    .attr("opacity", 1);
+                    .attr("opacity", 1)
+                    .transition(t)
+                    .attr("opacity", 0.05);
+                break;
+            case 'covid':
+                svg.selectAll(".dot")
+                    .remove();
                 break;
             case 5:
                 svg.selectAll(".dot")
-                    .data(packedPopulation.leaves().slice(1, 3))
+                    .remove();
+                break;
+            case 'inpatient':
+                svg.selectAll(".dot")
+                    .data(packedPopulation.leaves().slice(1, 40))
+                    .exit()
+                    .transition(t)
+                    .attr("opacity", 0)
+                    .remove();
+                break;
+            case 'fever':
+                svg.selectAll(".dot")
+                    .data(packedPopulation.leaves().slice(1, 6))
                     .exit()
                     .transition(t)
                     .attr("opacity", 0)
@@ -341,7 +439,18 @@
                         return "dot " + d.data.age
                     })
                     .attr("opacity", 1);
-
+                break;
+            case 'density':
+                svg.selectAll(".dot")
+                    .data(packedPopulationByDomain.leaves())
+                    .transition(t)
+                    .attr("r", d => d.r)
+                    .attr("cx", d => d.x + offsetX)
+                    .attr("cy", d => d.y + offsetY)
+                    .attr("class", d => {
+                        return "dot " + d.data.domain
+                    })
+                    .attr("opacity", 1);
                 break;
             case 'stratify-by-sex':
                 svg.selectAll(".dot")
@@ -411,6 +520,13 @@
         a65: 0.55
     });
 
+    var randDomain = weightedRand({
+        conditions: .37,
+        drugs: .19,
+        procedures: .17,
+        measurements: .27
+    });
+
     var data = [];
     var homeRadius = 350;
     for (i = 0; i < dotCount; i++) {
@@ -423,14 +539,15 @@
 
         data.push({
             index: i,
-            value: 2, //3 + Math.random() * 10,
+            value: 2 + Math.random() * 5,
             homeX: x,
             homeY: y,
             outerX: x2,
             outerY: y2,
             sex: randSex(),
             race: randRace(),
-            age: randAge()
+            age: randAge(),
+            domain: randDomain()
         });
     }
 
@@ -481,6 +598,28 @@
         ]
     };
     var packedPopulationByAge = pack(d3.hierarchy(populationByAge).sum(d => d.value));
+
+    var populationByDomain = {
+        name: "domain stratified population",
+        children: [{
+                name: "drugs",
+                children: data.filter(d => d.domain == "drugs")
+            },
+            {
+                name: "conditions",
+                children: data.filter(d => d.domain == "conditions")
+            },
+            {
+                name: "procedures",
+                children: data.filter(d => d.domain == "procedures")
+            },
+            {
+                name: "measurements",
+                children: data.filter(d => d.domain == "measurements")
+            },
+        ]
+    };
+    var packedPopulationByDomain = pack(d3.hierarchy(populationByDomain).sum(d => d.value));
 
     circles = svg.selectAll(".dot")
         .data(packedPopulation.leaves().sort((a, b) => {
